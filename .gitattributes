@@ -1,0 +1,7 @@
+# Shell scripts must be LF on all OSes
+*.sh   text eol=lf
+# PowerShell prefers CRLF on Windows; let Git auto-convert on checkout
+*.ps1  text eol=crlf
+# Binary assets – no diff
+*.png  binary
+*.jpg  binary
