@@ -118,5 +118,3 @@ During execution you can choose to:
 Distributed under the **MIT License** — see [`LICENSE`](LICENSE) for details.
 
 Happy on-boarding 🎉
-
-```
