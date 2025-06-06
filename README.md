@@ -1,4 +1,3 @@
-````markdown
 # Pinello Lab · On-boarding Automation Scripts
 
 A cross-platform toolkit that turns a blank laptop **and** a brand-new Linux
@@ -120,5 +119,4 @@ Distributed under the **MIT License** — see [`LICENSE`](LICENSE) for details.
 
 Happy on-boarding 🎉
 
-```
 ```
