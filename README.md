@@ -47,7 +47,7 @@ anywhere and just run.*
 ## 2 · Clone the repo
 
 ```bash
-git clone https://github.com/pinellolab/onboarding-scripts.git
+git clone https://github.com/pinellolab/onboarding.git
 cd onboarding-scripts
 ```
 
