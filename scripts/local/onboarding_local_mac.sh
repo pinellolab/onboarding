@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 echo "🚀  Starting local onboarding process…"
 REMOTE_SCRIPT="$(cd -- "$(dirname "$0")/../remote" && pwd)/onboarding_remote.sh"
+LOGFILE="$PWD/onboarding_local.log"
+exec > >(tee -a "$LOGFILE") 2> >(tee -a "$LOGFILE" >&2)
+trap 'echo "❌ Error on line $LINENO. See $LOGFILE for details." | tee -a "$LOGFILE"' ERR
 # ────────────────────────────────────────────────────────────────
 # 1. Optional software downloads
 # ────────────────────────────────────────────────────────────────
@@ -52,8 +55,31 @@ fi
 # 2. Trigger remote onboarding script
 # ────────────────────────────────────────────────────────────────
 read -r -p "Enter your MGH username to start remote onboarding: " mgh_user
+mgh_user="${mgh_user,,}"
+if [[ -z "$mgh_user" ]]; then
+  echo "❌ Username cannot be empty." | tee -a "$LOGFILE"
+  exit 1
+fi
+read -r -p "Will you be using Jupyter Lab? (Y/n): " jupyter_choice
+jupyter_password=""
+if [[ "$jupyter_choice" =~ ^[Yy]$ ]]; then
+  read -s -p "Enter a password for Jupyter Lab: " jupyter_password
+  echo
+  if [[ -z "$jupyter_password" ]]; then
+    echo "❌ Jupyter password cannot be empty if Jupyter Lab is selected." | tee -a "$LOGFILE"
+    exit 1
+  fi
+fi
+read -r -p "Will you be using Visual Studio Code? (Y/n): " vscode_choice
 echo "📡  Running remote onboarding on ml007…"
-ssh "$mgh_user"@ml007.research.partners.org "bash -s" < "$REMOTE_SCRIPT"
+if [[ "$jupyter_choice" =~ ^[Yy]$ ]]; then
+  ssh "$mgh_user"@ml007.research.partners.org \
+    "JUPYTER_CHOICE='$jupyter_choice' JUPYTER_PASSWORD='$jupyter_password' VSCODE_CHOICE='$vscode_choice' bash -s" < "$REMOTE_SCRIPT" | tee ./onboarding_remote.log
+else
+  ssh "$mgh_user"@ml007.research.partners.org \
+    "JUPYTER_CHOICE='$jupyter_choice' VSCODE_CHOICE='$vscode_choice' bash -s" < "$REMOTE_SCRIPT" | tee ./onboarding_remote.log
+fi
+
 # ────────────────────────────────────────────────────────────────
 # 3. Generate or reuse local SSH key
 # ────────────────────────────────────────────────────────────────
@@ -80,12 +106,12 @@ chmod 600 "$ssh_config"
 
 add_host () {
   local host=$1 fqdn=$2 user=$3
-  if ! grep -Fq "Host $host" "$ssh_config"; then
-    printf "\nHost %s\n\tHostName %s\n\tUser %s\n\tIdentityFile %s\n" \
-           "$host" "$fqdn" "$user" "$key_path" >>"$ssh_config"
+  if ! grep -Fq "HostName $fqdn" "$ssh_config"; then
+    printf "\nHost %s\n\tHostName %s\n\tUser %s\n" \
+          "$host" "$fqdn" "$user" >>"$ssh_config"
     echo "➕  Added $host to SSH config."
   else
-    echo "ℹ️  $host already in SSH config – skipping."
+    echo "ℹ️  HostName $fqdn already in SSH config – skipping."
   fi
 }
 

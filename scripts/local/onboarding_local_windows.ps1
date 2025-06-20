@@ -11,6 +11,8 @@ $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 Write-Host "`n🚀  Starting local onboarding process…" -ForegroundColor Cyan
 $RemoteScript = Join-Path $PSScriptRoot "..\remote\onboarding_remote.sh"
+$LOGFILE = Join-Path $PWD 'onboarding_local.log'
+Start-Transcript -Path $LOGFILE -Append
 # ──────────────────────────────────────────────────────────────
 # 1. Install or update WSL and ensure networking settings
 # ──────────────────────────────────────────────────────────────
@@ -106,9 +108,42 @@ if ($vscodeChoice -match '^[Yy]$') {
 # ──────────────────────────────────────────────────────────────
 # 3. Run remote onboarding script on ml007
 # ──────────────────────────────────────────────────────────────
-$mghUser = Read-Host -Prompt "Enter your MGH username for remote onboarding"
-Write-Host "📡  Executing remote onboarding on ml007…"
-ssh "$($mghUser)@ml007.research.partners.org" "bash -s" < $RemoteScript
+try {
+    $mghUser = Read-Host -Prompt "Enter your MGH username for remote onboarding"
+    $mghUser = $mghUser.ToLower()
+    if ([string]::IsNullOrWhiteSpace($mghUser)) {
+        Write-Host "❌ Username cannot be empty." | Tee-Object -FilePath $LOGFILE -Append
+        Stop-Transcript
+        exit 1
+    }
+
+    $jupyterChoice = Read-Host -Prompt "Will you be using Jupyter Lab? (Y/n)"
+    $jupyterPassword = ""
+    if ($jupyterChoice -match '^[Yy]$') {
+        $jupyterPassword = Read-Host -Prompt "Enter a password for Jupyter Lab" -AsSecureString | ConvertFrom-SecureString
+        if ([string]::IsNullOrWhiteSpace($jupyterPassword)) {
+            Write-Host "❌ Jupyter password cannot be empty if Jupyter Lab is selected." | Tee-Object -FilePath $LOGFILE -Append
+            Stop-Transcript
+            exit 1
+        }
+    }
+
+    $vscodeChoice = Read-Host -Prompt "Will you be using Visual Studio Code? (Y/n)"
+    Write-Host "📡  Executing remote onboarding on ml007…"
+    if ($jupyterChoice -match '^[Yy]$') {
+        $plainPassword = if ($jupyterPassword) { $jupyterPassword | ConvertTo-SecureString | ConvertFrom-SecureString -AsPlainText -Force } else { "" }
+        $envVars = @("JUPYTER_CHOICE='$jupyterChoice'", "JUPYTER_PASSWORD='$plainPassword'", "VSCODE_CHOICE='$vscodeChoice'") -join ' '
+        ssh "$($mghUser)@ml007.research.partners.org" "$envVars bash -s" < $RemoteScript | Tee-Object -FilePath ./onboarding_remote.log
+    } else {
+        $envVars = @("JUPYTER_CHOICE='$jupyterChoice'", "VSCODE_CHOICE='$vscodeChoice'") -join ' '
+        ssh "$($mghUser)@ml007.research.partners.org" "$envVars bash -s" < $RemoteScript | Tee-Object -FilePath ./onboarding_remote.log
+    }
+} catch {
+    Write-Host "❌ Error: $_" | Tee-Object -FilePath $LOGFILE -Append
+    Stop-Transcript
+    exit 1
+}
+Stop-Transcript
 # ──────────────────────────────────────────────────────────────
 # 4. Generate (or reuse) SSH key
 # ──────────────────────────────────────────────────────────────
@@ -132,20 +167,17 @@ $sshConfigPath = "$HOME\.ssh\config"
 if (-not (Test-Path $sshConfigPath)) { New-Item -ItemType File -Path $sshConfigPath | Out-Null }
 
 function Add-HostConfig {
-    param ($Host, $Fqdn, $User)
-    $config = Get-Content $sshConfigPath -Raw
-    if ($config -notmatch "Host\s+$Host\b") {
-@"
-Host $Host
-    HostName $Fqdn
-    User $User
-    IdentityFile $HOME\.ssh\id_rsa
-    IdentitiesOnly yes
-
-"@ >> $sshConfigPath
+    param(
+        [string]$Host, [string]$FQDN, [string]$User
+    )
+    $sshConfig = "$HOME/.ssh/config"
+    if (-not (Test-Path $sshConfig)) { New-Item -ItemType File -Path $sshConfig | Out-Null }
+    $configContent = Get-Content $sshConfig -Raw
+    if ($configContent -notmatch "HostName $FQDN") {
+        Add-Content $sshConfig "`nHost $Host`n    HostName $FQDN`n    User $User"
         Write-Host "➕  Added $Host to SSH config."
     } else {
-        Write-Host "ℹ️  $Host already present."
+        Write-Host "ℹ️  HostName $FQDN already in SSH config – skipping."
     }
 }
 
