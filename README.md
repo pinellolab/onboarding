@@ -1,4 +1,4 @@
-# Pinello Lab · On-boarding Automation Scripts
+# Pinello Lab · Onboarding Automation Scripts
 
 A cross-platform toolkit that turns a blank laptop **and** a brand-new Linux
 cluster account into a fully-configured development environment in minutes.
@@ -14,7 +14,7 @@ cluster account into a fully-configured development environment in minutes.
 ## Repository layout
 
 ```text
-onboarding-scripts/
+onboarding/
 ├── README.md
 ├── LICENSE
 └── scripts/
