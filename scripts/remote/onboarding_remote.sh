@@ -36,7 +36,7 @@ fi
 
 # ── 2. personal envs folder ──────────────────────────────────
 mkdir -p "$user_folder"
-"$miniforge_path/bin/mamba" config --show envs_dirs | grep -Fq "$user_folder" ||
+"$miniforge_path/bin/mamba" config list envs_dirs | grep -Fq "$user_folder" ||
     "$miniforge_path/bin/mamba" config prepend envs_dirs "$user_folder"
 
 # ── 3. authorised_keys perms fix ─────────────────────────────
