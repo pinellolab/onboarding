@@ -129,14 +129,41 @@ try {
     }
 
     $vscodeChoice = Read-Host -Prompt "Will you be using Visual Studio Code? (Y/n)"
-    Write-Host "📡  Executing remote onboarding on ml007…"
-    if ($jupyterChoice -match '^[Yy]$') {
-        $plainPassword = if ($jupyterPassword) { $jupyterPassword | ConvertTo-SecureString | ConvertFrom-SecureString -AsPlainText -Force } else { "" }
-        $envVars = @("JUPYTER_CHOICE='$jupyterChoice'", "JUPYTER_PASSWORD='$plainPassword'", "VSCODE_CHOICE='$vscodeChoice'") -join ' '
-        ssh "$($mghUser)@ml007.research.partners.org" "$envVars bash -s" < $RemoteScript | Tee-Object -FilePath ./onboarding_remote.log
-    } else {
-        $envVars = @("JUPYTER_CHOICE='$jupyterChoice'", "VSCODE_CHOICE='$vscodeChoice'") -join ' '
-        ssh "$($mghUser)@ml007.research.partners.org" "$envVars bash -s" < $RemoteScript | Tee-Object -FilePath ./onboarding_remote.log
+    Write-Host "Executing remote onboarding on ml007..."
+    
+    # Create a temporary file with proper Unix line endings
+    $tempFile = [System.IO.Path]::GetTempFileName()
+    
+    try {
+        # Read the script and clean it
+        $scriptBytes = [System.IO.File]::ReadAllBytes($RemoteScript)
+        $scriptText = [System.Text.Encoding]::UTF8.GetString($scriptBytes)
+        
+        # Remove ALL carriage returns and normalize to Unix line endings
+        $scriptText = $scriptText -replace "`r`n", "`n" -replace "`r", "`n"
+        $scriptText = $scriptText -replace [char]13, ""  # Remove any remaining carriage returns (ASCII 13)
+        
+        # Ensure the script ends with a single newline
+        $scriptText = $scriptText.TrimEnd() + "`n"
+        
+        # Write to temp file with UTF8 encoding and Unix line endings
+        $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+        [System.IO.File]::WriteAllText($tempFile, $scriptText, $utf8NoBom)
+        
+        if ($jupyterChoice -match '^[Yy]$') {
+            $plainPassword = if ($jupyterPassword) { $jupyterPassword | ConvertTo-SecureString | ConvertFrom-SecureString -AsPlainText -Force } else { "" }
+            $envVars = "JUPYTER_CHOICE='$jupyterChoice' JUPYTER_PASSWORD='$plainPassword' VSCODE_CHOICE='$vscodeChoice'"
+            # Use cat on Windows (or Get-Content with specific encoding) to pipe the file
+            & cmd /c "type `"$tempFile`"" | ssh "$($mghUser)@ml007.research.partners.org" "$envVars bash -s" | Tee-Object -FilePath ./onboarding_remote.log
+        } else {
+            $envVars = "JUPYTER_CHOICE='$jupyterChoice' VSCODE_CHOICE='$vscodeChoice'"
+            & cmd /c "type `"$tempFile`"" | ssh "$($mghUser)@ml007.research.partners.org" "$envVars bash -s" | Tee-Object -FilePath ./onboarding_remote.log
+        }
+    } finally {
+        # Clean up temp file
+        if (Test-Path $tempFile) {
+            Remove-Item $tempFile -Force
+        }
     }
 } catch {
     Write-Host "❌ Error: $_" | Tee-Object -FilePath $LOGFILE -Append
@@ -158,7 +185,26 @@ if (Test-Path $keyPath) {
 }
 
 Write-Host "🔐  Copying public key to ml007…"
-ssh-copy-id "$($mghUser)@ml007.research.partners.org"
+$typePubKey = Get-Content "$keyPath.pub"
+
+# Use standard SSH to copy the public key instead of PowerShell remoting
+try {
+    # Check if key already exists in authorized_keys before adding
+    $keyCheck = ssh "$($mghUser)@ml007.research.partners.org" "grep -q '$typePubKey' ~/.ssh/authorized_keys 2>/dev/null && echo 'exists' || echo 'missing'"
+    
+    if ($keyCheck -eq "exists") {
+        Write-Host "✅  Public key already exists in ml007 authorized_keys."
+    } else {
+        # Create the .ssh directory and append the public key to authorized_keys
+        $sshCommand = "mkdir -p ~/.ssh && echo '$typePubKey' >> ~/.ssh/authorized_keys && chmod 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys"
+        ssh "$($mghUser)@ml007.research.partners.org" $sshCommand
+        Write-Host "✅  Public key successfully copied to ml007."
+    }
+} catch {
+    Write-Host "❌  Failed to copy public key: $_" -ForegroundColor Red
+    Write-Host "💡  You may need to manually copy your public key to the remote server." -ForegroundColor Yellow
+    Write-Host "    Public key content: $typePubKey" -ForegroundColor Gray
+}
 
 # ──────────────────────────────────────────────────────────────
 # 5. Populate ~/.ssh/config
@@ -168,21 +214,23 @@ if (-not (Test-Path $sshConfigPath)) { New-Item -ItemType File -Path $sshConfigP
 
 function Add-HostConfig {
     param(
-        [string]$Host, [string]$FQDN, [string]$User
+        [string]$HostName, [string]$FQDN, [string]$User
     )
     $sshConfig = "$HOME/.ssh/config"
     if (-not (Test-Path $sshConfig)) { New-Item -ItemType File -Path $sshConfig | Out-Null }
     $configContent = Get-Content $sshConfig -Raw
-    if ($configContent -notmatch "HostName $FQDN") {
-        Add-Content $sshConfig "`nHost $Host`n    HostName $FQDN`n    User $User"
-        Write-Host "➕  Added $Host to SSH config."
+    
+    # Check for the specific host entry, not just any HostName with that FQDN
+    if ($configContent -notmatch "Host $HostName\s*\n\s*HostName $FQDN") {
+        Add-Content $sshConfig "`nHost $HostName`n    HostName $FQDN`n    User $User"
+        Write-Host "➕  Added $HostName to SSH config."
     } else {
-        Write-Host "ℹ️  HostName $FQDN already in SSH config – skipping."
+        Write-Host "ℹ️  Host $HostName already in SSH config – skipping."
     }
 }
 
-Add-HostConfig -Host 'ml003' -Fqdn 'ml003.research.partners.org' -User $mghUser
-Add-HostConfig -Host 'ml007' -Fqdn 'ml007.research.partners.org' -User $mghUser
-Add-HostConfig -Host 'ml008' -Fqdn 'ml008.research.partners.org' -User $mghUser
+Add-HostConfig -HostName 'ml003' -Fqdn 'ml003.research.partners.org' -User $mghUser
+Add-HostConfig -HostName 'ml007' -Fqdn 'ml007.research.partners.org' -User $mghUser
+Add-HostConfig -HostName 'ml008' -Fqdn 'ml008.research.partners.org' -User $mghUser
 
 Write-Host "`n✅  Local onboarding complete!" -ForegroundColor Green
