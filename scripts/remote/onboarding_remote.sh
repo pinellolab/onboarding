@@ -49,7 +49,7 @@ if [[ "$jupyter_choice" =~ ^[Yy]$ ]]; then
     cfg="$HOME/.jupyter/jupyter_server_config.json"
     mkdir -p "$(dirname "$cfg")"
     if ! grep -q '"IdentityProvider":' "$cfg" 2>/dev/null; then
-        if [ -n "${JUPYTER_CHOICE:-}" ]; then
+        if [ -n "${JUPYTER_CHOICE:-}" ] && [[ "$jupyter_choice" =~ ^[Yy]$ ]]; then
             echo "Setting Jupyter password (non-interactive)..."
             # Read password from stdin (first line)
             read -r jupyter_password
