@@ -229,7 +229,7 @@ try {
     Write-Host "   SSH connection successful, preparing remote SSH directory..." -ForegroundColor Gray
     
     # Ensure proper SSH directory structure exists on remote server
-    $sshSetupCommand = "mkdir -p `$HOME/.ssh && touch `$HOME/.ssh/authorized_keys && chmod 700 `$HOME/.ssh && chmod 600 `$HOME/.ssh/authorized_keys"
+    $sshSetupCommand = "mkdir -p `$HOME/.ssh && [ -f `$HOME/.ssh/authorized_keys ] && mv `$HOME/.ssh/authorized_keys `$HOME/.ssh/authorized_keys.old || true && touch `$HOME/.ssh/authorized_keys && [ -f `$HOME/.ssh/authorized_keys.old ] && cat `$HOME/.ssh/authorized_keys.old >> `$HOME/.ssh/authorized_keys || true && chmod 700 `$HOME/.ssh && chmod 600 `$HOME/.ssh/authorized_keys"
     $setupResult = ssh -o StrictHostKeyChecking=no -o PasswordAuthentication=yes "$($mghUser)@ml007.research.partners.org" $sshSetupCommand 2>&1
     
     if ($LASTEXITCODE -ne 0) {
