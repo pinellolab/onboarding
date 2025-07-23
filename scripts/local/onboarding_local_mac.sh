@@ -140,8 +140,9 @@ echo "✅ SSH key-based connectivity confirmed"
 
 echo "📡  Running remote onboarding on ml007 (passwordless)…"
 if [[ "$jupyter_choice" =~ ^[Yy]$ ]]; then
-  if ! ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$mgh_user"@ml007.research.partners.org \
-    "JUPYTER_CHOICE='$jupyter_choice' JUPYTER_PASSWORD='$jupyter_password' VSCODE_CHOICE='$vscode_choice' bash -s" < "$REMOTE_SCRIPT" | tee ./onboarding_remote.log; then
+  # Create a combined input with password followed by script content
+  if ! { echo "$jupyter_password"; cat "$REMOTE_SCRIPT"; } | ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$mgh_user"@ml007.research.partners.org \
+    "JUPYTER_CHOICE='$jupyter_choice' VSCODE_CHOICE='$vscode_choice' bash -s" | tee ./onboarding_remote.log; then
     echo "❌ Remote onboarding failed. Check onboarding_remote.log for details."
     exit 1
   fi

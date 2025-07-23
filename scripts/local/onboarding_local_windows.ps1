@@ -341,9 +341,11 @@ try {
         }
         
         if ($jupyterChoice -match '^[Yy]$') {
-            $envVars = "JUPYTER_CHOICE='$jupyterChoice' JUPYTER_PASSWORD='$jupyterPassword' VSCODE_CHOICE='$vscodeChoice'"
-            # Use SSH key-based authentication (passwordless)
-            & cmd /c "type `"$tempFile`"" | ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$($mghUser)@ml007.research.partners.org" "$envVars bash -s" | Tee-Object -FilePath ./onboarding_remote.log
+            $envVars = "JUPYTER_CHOICE='$jupyterChoice' VSCODE_CHOICE='$vscodeChoice'"
+            # Create a combined input with password followed by script
+            $combinedInput = "$jupyterPassword`n" + (Get-Content $tempFile -Raw)
+            # Use SSH key-based authentication (passwordless) and pass password via stdin
+            $combinedInput | ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$($mghUser)@ml007.research.partners.org" "$envVars bash -s" | Tee-Object -FilePath ./onboarding_remote.log
         } else {
             $envVars = "JUPYTER_CHOICE='$jupyterChoice' VSCODE_CHOICE='$vscodeChoice'"
             & cmd /c "type `"$tempFile`"" | ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$($mghUser)@ml007.research.partners.org" "$envVars bash -s" | Tee-Object -FilePath ./onboarding_remote.log
