@@ -1,0 +1,526 @@
+**********************
+PowerShell transcript start
+Start time: 20250722172246
+Username: JDD-DESKTOP\Justin
+RunAs User: JDD-DESKTOP\Justin
+Configuration Name: 
+Machine: JDD-DESKTOP (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\Justin\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 63608
+PSVersion: 7.5.2
+PSEdition: Core
+GitCommitId: 7.5.2
+OS: Microsoft Windows 10.0.22621
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+📡  Executing remote onboarding on ml007…
+**********************
+PowerShell transcript end
+End time: 20250722172301
+**********************
+**********************
+PowerShell transcript start
+Start time: 20250722173044
+Username: JDD-DESKTOP\Justin
+RunAs User: JDD-DESKTOP\Justin
+Configuration Name: 
+Machine: JDD-DESKTOP (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\Justin\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 63608
+PSVersion: 7.5.2
+PSEdition: Core
+GitCommitId: 7.5.2
+OS: Microsoft Windows 10.0.22621
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+⏳  Installing Microsoft Teams…
+
+Skipping VS Code.
+📡  Executing remote onboarding on ml007…
+**********************
+PowerShell transcript end
+End time: 20250722173112
+**********************
+**********************
+PowerShell transcript start
+Start time: 20250722173148
+Username: JDD-DESKTOP\Justin
+RunAs User: JDD-DESKTOP\Justin
+Configuration Name: 
+Machine: JDD-DESKTOP (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\Justin\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 63608
+PSVersion: 7.5.2
+PSEdition: Core
+GitCommitId: 7.5.2
+OS: Microsoft Windows 10.0.22621
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+]633;D;1]633;A]633;P;Cwd=C:\x5cUsers\x5cJustin\x5cDocuments\x5cPython Scripts\x5conboarding-mainPS C:\Users\Justin\Documents\Python Scripts\onboarding-main> ]633;B
+PS>.\scripts\local\onboarding_local_windows.ps1
+
+🚀  Starting local onboarding process…
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+📡  Executing remote onboarding on ml007…
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+🔑  Existing SSH key found – reusing.
+🔐  Copying public key to ml007…
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+]633;D;1]633;A]633;P;Cwd=C:\x5cUsers\x5cJustin\x5cDocuments\x5cPython Scripts\x5conboarding-mainPS C:\Users\Justin\Documents\Python Scripts\onboarding-main> ]633;B
+PS>.\scripts\local\onboarding_local_windows.ps1
+
+🚀  Starting local onboarding process…
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+📡  Executing remote onboarding on ml007…
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+🔑  Existing SSH key found – reusing.
+🔐  Copying public key to ml007…
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+]633;D;1]633;A]633;P;Cwd=C:\x5cUsers\x5cJustin\x5cDocuments\x5cPython Scripts\x5conboarding-mainPS C:\Users\Justin\Documents\Python Scripts\onboarding-main> ]633;B
+]633;D]633;A]633;P;Cwd=C:\x5cUsers\x5cJustin\x5cDocuments\x5cPython Scripts\x5conboarding-mainPS C:\Users\Justin\Documents\Python Scripts\onboarding-main> ]633;B
+PS>.\scripts\local\onboarding_local_windows.ps1
+
+🚀  Starting local onboarding process…
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+📡  Executing remote onboarding on ml007…
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+🔑  Existing SSH key found – reusing.
+🔐  Copying public key to ml007…
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+]633;D;1]633;A]633;P;Cwd=C:\x5cUsers\x5cJustin\x5cDocuments\x5cPython Scripts\x5conboarding-mainPS C:\Users\Justin\Documents\Python Scripts\onboarding-main> ]633;B
+PS>.\scripts\local\onboarding_local_windows.ps1
+
+🚀  Starting local onboarding process…
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+📡  Executing remote onboarding on ml007…
+≡ƒÜÇ  Starting remote onboarding processΓÇª
+Γ£à  Remote onboarding complete!
+Γ¥î Error on line 91.
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+🔑  Existing SSH key found – reusing.
+🔐  Copying public key to ml007…
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+]633;D;1]633;A]633;P;Cwd=C:\x5cUsers\x5cJustin\x5cDocuments\x5cPython Scripts\x5conboarding-mainPS C:\Users\Justin\Documents\Python Scripts\onboarding-main> ]633;B
+PS>.\scripts\local\onboarding_local_windows.ps1
+
+🚀  Starting local onboarding process…
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+📡  Executing remote onboarding on ml007…
+
+≡ƒÜÇ  Starting remote onboarding processΓÇª
+Γ£à  Remote onboarding complete!
+❌ Error: Could not find a part of the path 'C:\dev\null'.
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+]633;D;1]633;A]633;P;Cwd=C:\x5cUsers\x5cJustin\x5cDocuments\x5cPython Scripts\x5conboarding-mainPS C:\Users\Justin\Documents\Python Scripts\onboarding-main> ]633;B
+PS>.\scripts\local\onboarding_local_windows.ps1
+
+🚀  Starting local onboarding process…
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+Executing remote onboarding on ml007...
+Starting remote onboarding process...
+Remote onboarding complete!
+ERROR: Error on line 91.
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+🔑  Existing SSH key found – reusing.
+🔐  Copying public key to ml007…
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+]633;D;1]633;A]633;P;Cwd=C:\x5cUsers\x5cJustin\x5cDocuments\x5cPython Scripts\x5conboarding-mainPS C:\Users\Justin\Documents\Python Scripts\onboarding-main> ]633;B
+PS>.\scripts\local\onboarding_local_windows.ps1
+
+🚀  Starting local onboarding process…
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+Executing remote onboarding on ml007...
+Starting remote onboarding process...
+Remote onboarding complete!
+ERROR: Error on line 91.
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+🔑  Existing SSH key found – reusing.
+🔐  Copying public key to ml007…
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+]633;D;1]633;A]633;P;Cwd=C:\x5cUsers\x5cJustin\x5cDocuments\x5cPython Scripts\x5conboarding-mainPS C:\Users\Justin\Documents\Python Scripts\onboarding-main> ]633;B
+PS>.\scripts\local\onboarding_local_windows.ps1
+
+🚀  Starting local onboarding process…
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+Executing remote onboarding on ml007...
+Starting remote onboarding process...
+Remote onboarding complete!
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+🔑  Existing SSH key found – reusing.
+🔐  Copying public key to ml007…
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+]633;D;1]633;A]633;P;Cwd=C:\x5cUsers\x5cJustin\x5cDocuments\x5cPython Scripts\x5conboarding-mainPS C:\Users\Justin\Documents\Python Scripts\onboarding-main> ]633;B
+PS>.\scripts\local\onboarding_local_windows.ps1
+
+🚀  Starting local onboarding process…
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+Executing remote onboarding on ml007...
+Starting remote onboarding process...
+Remote onboarding complete!
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+🔑  Existing SSH key found – reusing.
+🔐  Copying public key to ml007…
+
+✅  Public key successfully copied to ml007.
+PS>TerminatingError(): "Cannot overwrite variable Host because it is read-only or constant."
+>> TerminatingError(): "Cannot overwrite variable Host because it is read-only or constant."
+>> TerminatingError(): "Cannot overwrite variable Host because it is read-only or constant."
+Cannot overwrite variable Host because it is read-only or constant.
+WriteError: C:\Users\Justin\Documents\Python Scripts\onboarding-main\scripts\local\onboarding_local_windows.ps1:223:1
+Line |
+ 223 |  Add-HostConfig -Host 'ml003' -Fqdn 'ml003.research.partners.org' -Use …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Cannot overwrite variable Host because it is read-only or constant.
+
+]633;D;1]633;A]633;P;Cwd=C:\x5cUsers\x5cJustin\x5cDocuments\x5cPython Scripts\x5conboarding-mainPS C:\Users\Justin\Documents\Python Scripts\onboarding-main> ]633;B
+PS>.\scripts\local\onboarding_local_windows.ps1
+
+🚀  Starting local onboarding process…
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+Executing remote onboarding on ml007...
+Starting remote onboarding process...
+Remote onboarding complete!
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+🔑  Existing SSH key found – reusing.
+🔐  Copying public key to ml007…
+
+✅  Public key successfully copied to ml007.
+ℹ️  HostName ml003.research.partners.org already in SSH config – skipping.
+ℹ️  HostName ml007.research.partners.org already in SSH config – skipping.
+ℹ️  HostName ml008.research.partners.org already in SSH config – skipping.
+
+✅  Local onboarding complete!
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cJustin\x5cDocuments\x5cPython Scripts\x5conboarding-mainPS C:\Users\Justin\Documents\Python Scripts\onboarding-main> ]633;B
+**********************
+PowerShell transcript end
+End time: 20250722175150
+**********************
+**********************
+PowerShell transcript start
+Start time: 20250723112225
+Username: JDD-DESKTOP\Justin
+RunAs User: JDD-DESKTOP\Justin
+Configuration Name: 
+Machine: JDD-DESKTOP (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\Justin\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 62084
+PSVersion: 7.5.2
+PSEdition: Core
+GitCommitId: 7.5.2
+OS: Microsoft Windows 10.0.22621
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+Executing remote onboarding on ml007...
+**********************
+PowerShell transcript end
+End time: 20250723112235
+**********************
+**********************
+PowerShell transcript start
+Start time: 20250723112404
+Username: JDD-DESKTOP\Justin
+RunAs User: JDD-DESKTOP\Justin
+Configuration Name: 
+Machine: JDD-DESKTOP (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\Justin\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 62084
+PSVersion: 7.5.2
+PSEdition: Core
+GitCommitId: 7.5.2
+OS: Microsoft Windows 10.0.22621
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+Executing remote onboarding on ml007...
+   Testing SSH connection...
+❌  Cannot resolve hostname 'ml007.research.partners.org'
+💡  Please check your network connection and DNS settings.
+    You may need to be connected to the organization VPN.
+❌ Error: SSH connection to ml007 failed
+**********************
+PowerShell transcript end
+End time: 20250723112410
+**********************
+**********************
+PowerShell transcript start
+Start time: 20250723114208
+Username: JDD-DESKTOP\Justin
+RunAs User: JDD-DESKTOP\Justin
+Configuration Name: 
+Machine: JDD-DESKTOP (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\Justin\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 62084
+PSVersion: 7.5.2
+PSEdition: Core
+GitCommitId: 7.5.2
+OS: Microsoft Windows 10.0.22621
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+Executing remote onboarding on ml007...
+   Testing SSH connection...
+[ERROR] Cannot resolve hostname 'ml007.research.partners.org'
+[TIP] Please check your network connection and DNS settings.
+      You may need to be connected to the organization VPN.
+[ERROR] Error: SSH connection to ml007 failed
+**********************
+PowerShell transcript end
+End time: 20250723114214
+**********************
+**********************
+Windows PowerShell transcript start
+Start time: 20250723114233
+Username: JDD-DESKTOP\Justin
+RunAs User: JDD-DESKTOP\Justin
+Configuration Name: 
+Machine: JDD-DESKTOP (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 51028
+PSVersion: 5.1.22621.5624
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.22621.5624
+BuildVersion: 10.0.22621.5624
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+Executing remote onboarding on ml007...
+   Testing SSH connection...
+PS>TerminatingError(ssh.exe): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: ssh: Could not resolve hostname ml007.research.partners.org: No such host is known. "
+[ERROR] Error: ssh: Could not resolve hostname ml007.research.partners.org: No such host is known.
+**********************
+Windows PowerShell transcript end
+End time: 20250723114243
+**********************
+**********************
+PowerShell transcript start
+Start time: 20250723114258
+Username: JDD-DESKTOP\Justin
+RunAs User: JDD-DESKTOP\Justin
+Configuration Name: 
+Machine: JDD-DESKTOP (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\Justin\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 62084
+PSVersion: 7.5.2
+PSEdition: Core
+GitCommitId: 7.5.2
+OS: Microsoft Windows 10.0.22621
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+Executing remote onboarding on ml007...
+   Testing SSH connection...
+   SSH connection successful, executing remote script...
+Starting remote onboarding process...
+Remote onboarding complete!
+**********************
+PowerShell transcript end
+End time: 20250723114310
+**********************
+**********************
+PowerShell transcript start
+Start time: 20250723114747
+Username: JDD-DESKTOP\Justin
+RunAs User: JDD-DESKTOP\Justin
+Configuration Name: 
+Machine: JDD-DESKTOP (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\Justin\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 62084
+PSVersion: 7.5.2
+PSEdition: Core
+GitCommitId: 7.5.2
+OS: Microsoft Windows 10.0.22621
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+[OK] WSL already installed ("U b u n t u   "). Skipping install.
+[CONFIG] Configuring C:\Users\Justin\.wslconfig...
+[OK] WSL configuration already up-to-date.
+[INSTALL] Installing Microsoft Teams...
+
+[INSTALL] Installing Visual Studio Code...
+
+
+[EXTENSIONS] Installing VS Code extensions...
+[SKIP] Extension ms-vscode-remote.remote-ssh already installed - skipping
+[SKIP] Extension ms-python.python already installed - skipping
+[SKIP] Extension ms-toolsai.jupyter already installed - skipping
+[INSTALL] Installing extension: GitHub.copilot
+
+[OK] VS Code settings written to C:\Users\Justin\AppData\Roaming\Code\User\settings.json
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+]633;D;1]633;A]633;P;Cwd=C:\x5cUsers\x5cJustin\x5cDocuments\x5cPython Scripts\x5conboarding-mainPS C:\Users\Justin\Documents\Python Scripts\onboarding-main> ]633;B
+PS>.\scripts\local\onboarding_local_windows.ps1
+
+[Starting] Starting local onboarding process...
+PowerShell Version: 7.5.2
+[SUCCESS] MGH username set to: ji111
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+[OK] WSL already installed ("U b u n t u   "). Skipping install.
+[CONFIG] Configuring C:\Users\Justin\.wslconfig...
+[OK] WSL configuration already up-to-date.
+[INSTALL] Installing Microsoft Teams...
+
+[INSTALL] Installing Visual Studio Code...
+
+
+[EXTENSIONS] Installing VS Code extensions...
+[SKIP] Extension ms-vscode-remote.remote-ssh already installed - skipping
+[SKIP] Extension ms-python.python already installed - skipping
+[SKIP] Extension ms-toolsai.jupyter already installed - skipping
+[SKIP] Extension GitHub.copilot already installed - skipping
+[SKIP] VS Code settings already configured - skipping
+Executing remote onboarding on ml007...
+   Testing SSH connection...
+   SSH connection successful, executing remote script...
+Starting remote onboarding process...
+* Wrote fresh VS Code Machine settings to /PHShome/ji111/.vscode-server/data/Machine/settings.json
+Remote onboarding complete!
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+[KEY] Existing SSH key found - reusing.
+[COPY] Copying public key to ml007...
+   Testing SSH connection to ml007...
+   SSH connection successful, checking for existing key...
+[SKIP] Public key already exists in ml007 authorized_keys.
+[SKIP] Host ml003 already in SSH config - skipping.
+[SKIP] Host ml007 already in SSH config - skipping.
+[SKIP] Host ml008 already in SSH config - skipping.
+
+[COMPLETE] Local onboarding complete!
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cJustin\x5cDocuments\x5cPython Scripts\x5conboarding-mainPS C:\Users\Justin\Documents\Python Scripts\onboarding-main> ]633;B
+PS>.\scripts\local\onboarding_local_windows.ps1
+
+[Starting] Starting local onboarding process...
+PowerShell Version: 7.5.2
+[SUCCESS] MGH username set to: ji111
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+[KEY] Existing SSH key found - reusing.
+[COPY] Copying public key to ml007...
+   Testing SSH connection to ml007...
+   (You may be prompted for your password)
+   SSH connection successful, checking for existing key...
+[SKIP] Public key already exists in ml007 authorized_keys.
+Executing remote onboarding on ml007...
+   Testing SSH connection with key-based authentication...
+   SSH connection successful, executing remote script...
+Starting remote onboarding process...
+Remote onboarding complete!
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+[SKIP] Host ml003 already in SSH config - skipping.
+[SKIP] Host ml007 already in SSH config - skipping.
+[SKIP] Host ml008 already in SSH config - skipping.
+
+[COMPLETE] Local onboarding complete!
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cJustin\x5cDocuments\x5cPython Scripts\x5conboarding-mainPS C:\Users\Justin\Documents\Python Scripts\onboarding-main> ]633;B
