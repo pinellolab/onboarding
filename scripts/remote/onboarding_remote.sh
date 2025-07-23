@@ -39,6 +39,12 @@ mkdir -p "$user_folder"
 "$miniforge_path/bin/mamba" config list envs_dirs | grep -Fq "$user_folder" ||
     "$miniforge_path/bin/mamba" config prepend envs_dirs "$user_folder"
 
+# Remove 'defaults' channel if it exists to avoid conflicts
+if "$miniforge_path/bin/mamba" config get channels | grep -Fq "defaults"; then
+    "$miniforge_path/bin/mamba" config remove channels defaults
+    echo "* Removed 'defaults' channel from conda configuration"
+fi
+
 # -- 3. optional Jupyter Lab password -------------------------
 if [ -n "${JUPYTER_CHOICE:-}" ]; then
     jupyter_choice="$JUPYTER_CHOICE"

@@ -31,6 +31,52 @@ function ConvertFrom-SecureStringCompat {
     }
 }
 
+# PowerShell 5.1-compatible SSH execution helper
+function Invoke-SSHCommand {
+    param(
+        [string]$Arguments,
+        [switch]$SuppressOutput
+    )
+    
+    $sshProcess = New-Object System.Diagnostics.Process
+    $sshProcess.StartInfo.FileName = "ssh"
+    $sshProcess.StartInfo.Arguments = $Arguments
+    $sshProcess.StartInfo.UseShellExecute = $false
+    $sshProcess.StartInfo.RedirectStandardOutput = $true
+    $sshProcess.StartInfo.RedirectStandardError = $true
+    $sshProcess.StartInfo.CreateNoWindow = $true
+    
+    try {
+        $sshProcess.Start() | Out-Null
+        $output = $sshProcess.StandardOutput.ReadToEnd()
+        $error = $sshProcess.StandardError.ReadToEnd()
+        $sshProcess.WaitForExit()
+        $exitCode = $sshProcess.ExitCode
+        
+        # Combine output and error
+        if ($error) {
+            $output += "`n" + $error
+        }
+        
+        return @{
+            Output = $output
+            ExitCode = $exitCode
+        }
+    } catch {
+        if (-not $SuppressOutput) {
+            Write-Host "[ERROR] SSH process error: $_" -ForegroundColor Red
+        }
+        return @{
+            Output = "Process execution failed: $_"
+            ExitCode = 1
+        }
+    } finally {
+        if ($sshProcess) {
+            $sshProcess.Dispose()
+        }
+    }
+}
+
 Write-Host "`n[Starting] Starting local onboarding process..." -ForegroundColor Cyan
 Write-Host "PowerShell Version: $($PSVersionTable.PSVersion)" -ForegroundColor Gray
 
@@ -197,10 +243,11 @@ try {
     # First test SSH connectivity
     Write-Host "   Testing SSH connection to ml007..." -ForegroundColor Gray
     Write-Host "   (You may be prompted for your password)" -ForegroundColor Yellow
-    $connectTest = ssh -o ConnectTimeout=10 -o StrictHostKeyChecking=no -o PasswordAuthentication=yes "$($mghUser)@ml007.research.partners.org" "echo 'connected'" 2>&1
     
-    if ($LASTEXITCODE -ne 0) {
-        $errorMessage = $connectTest -join "`n"
+    $sshResult = Invoke-SSHCommand -Arguments "-o ConnectTimeout=10 -o StrictHostKeyChecking=no -o PasswordAuthentication=yes -o LogLevel=ERROR `"$($mghUser)@ml007.research.partners.org`" `"echo 'connected'`""
+
+    if ($sshResult.ExitCode -ne 0) {
+        $errorMessage = $sshResult.Output
         if ($errorMessage -like "*Could not resolve hostname*") {
             Write-Host "[ERROR] Cannot resolve hostname 'ml007.research.partners.org'" -ForegroundColor Red
             Write-Host "[TIP] Please check your network connection and DNS settings." -ForegroundColor Yellow
@@ -230,29 +277,39 @@ try {
     
     # Ensure proper SSH directory structure exists on remote server
     $sshSetupCommand = "mkdir -p `$HOME/.ssh && [ -f `$HOME/.ssh/authorized_keys ] && mv `$HOME/.ssh/authorized_keys `$HOME/.ssh/authorized_keys.old || true && touch `$HOME/.ssh/authorized_keys && [ -f `$HOME/.ssh/authorized_keys.old ] && cat `$HOME/.ssh/authorized_keys.old >> `$HOME/.ssh/authorized_keys || true && chmod 700 `$HOME/.ssh && chmod 600 `$HOME/.ssh/authorized_keys"
-    $setupResult = ssh -o StrictHostKeyChecking=no -o PasswordAuthentication=yes "$($mghUser)@ml007.research.partners.org" $sshSetupCommand 2>&1
     
-    if ($LASTEXITCODE -ne 0) {
-        Write-Host "[WARNING] Failed to setup SSH directory structure: $setupResult" -ForegroundColor Yellow
+    $setupResult = Invoke-SSHCommand -Arguments "-o StrictHostKeyChecking=no -o PasswordAuthentication=yes -o LogLevel=ERROR `"$($mghUser)@ml007.research.partners.org`" `"$sshSetupCommand`"" -SuppressOutput
+    
+    if ($setupResult.ExitCode -ne 0) {
+        Write-Host "[WARNING] Failed to setup SSH directory structure" -ForegroundColor Yellow
         Write-Host "          Continuing anyway - this may be a permissions issue that resolves itself" -ForegroundColor Gray
     } else {
         Write-Host "   Remote SSH directory structure confirmed" -ForegroundColor Gray
     }
     
     # Check if key already exists in authorized_keys before adding
-    $keyCheck = ssh -o StrictHostKeyChecking=no -o PasswordAuthentication=yes "$($mghUser)@ml007.research.partners.org" "grep -q '$typePubKey' ~/.ssh/authorized_keys 2>/dev/null && echo 'exists' || echo 'missing'" 2>&1
+    # Use fgrep (fixed string search) instead of grep to handle special characters in SSH keys
+    $keyCheckResult = Invoke-SSHCommand -Arguments "-o StrictHostKeyChecking=no -o PasswordAuthentication=yes -o LogLevel=ERROR `"$($mghUser)@ml007.research.partners.org`" `"fgrep -q '$typePubKey' ~/.ssh/authorized_keys 2>/dev/null && echo 'exists' || echo 'missing'`"" -SuppressOutput
+    $keyCheck = $keyCheckResult.Output.Trim()
+    
+    # Default to missing if check fails
+    if ($keyCheckResult.ExitCode -ne 0) {
+        $keyCheck = "missing"
+    }
     
     if ($keyCheck -eq "exists") {
         Write-Host "[SKIP] Public key already exists in ml007 authorized_keys."
     } else {
-        # Append the public key to authorized_keys (directory structure already set up)
-        $sshCommand = "echo '$typePubKey' >> ~/.ssh/authorized_keys"
-        $result = ssh -o StrictHostKeyChecking=no -o PasswordAuthentication=yes "$($mghUser)@ml007.research.partners.org" $sshCommand 2>&1
+        # Use a safer method to add the key that prevents duplicates
+        # This command adds the key only if it doesn't already exist (double-check protection)
+        $sshCommand = "grep -Fxq '$typePubKey' ~/.ssh/authorized_keys 2>/dev/null || echo '$typePubKey' >> ~/.ssh/authorized_keys"
         
-        if ($LASTEXITCODE -eq 0) {
+        $keyInstallResult = Invoke-SSHCommand -Arguments "-o StrictHostKeyChecking=no -o PasswordAuthentication=yes -o LogLevel=ERROR `"$($mghUser)@ml007.research.partners.org`" `"$sshCommand`""
+        
+        if ($keyInstallResult.ExitCode -eq 0) {
             Write-Host "[SUCCESS] Public key successfully copied to ml007."
         } else {
-            Write-Host "[ERROR] Failed to copy public key: $result" -ForegroundColor Red
+            Write-Host "[ERROR] Failed to copy public key" -ForegroundColor Red
             Write-Host "[MANUAL] Manual installation: Add this key to ~/.ssh/authorized_keys on ml007:" -ForegroundColor Yellow
             Write-Host "         $typePubKey" -ForegroundColor Gray
             Write-Host "[ERROR] Cannot proceed without SSH key setup." -ForegroundColor Red
@@ -290,10 +347,11 @@ try {
     
     # Test SSH connectivity first (now using SSH key)
     Write-Host "   Testing SSH connection with key-based authentication..." -ForegroundColor Gray
-    $connectTest = ssh -o ConnectTimeout=10 -o BatchMode=yes -o StrictHostKeyChecking=no "$($mghUser)@ml007.research.partners.org" "echo 'connected'" 2>&1
     
-    if ($LASTEXITCODE -ne 0) {
-        $errorMessage = $connectTest -join "`n"
+    $keyTestResult = Invoke-SSHCommand -Arguments "-o ConnectTimeout=10 -o BatchMode=yes -o StrictHostKeyChecking=no -o LogLevel=ERROR `"$($mghUser)@ml007.research.partners.org`" `"echo 'connected'`""
+    
+    if ($keyTestResult.ExitCode -ne 0) {
+        $errorMessage = $keyTestResult.Output
         if ($errorMessage -like "*Could not resolve hostname*") {
             Write-Host "[ERROR] Cannot resolve hostname 'ml007.research.partners.org'" -ForegroundColor Red
             Write-Host "[TIP] Please check your network connection and DNS settings." -ForegroundColor Yellow
@@ -315,43 +373,62 @@ try {
     
     Write-Host "   SSH connection successful, executing remote script..." -ForegroundColor Gray
     
-    # Create a temporary file with proper Unix line endings
-    $tempFile = [System.IO.Path]::GetTempFileName()
+    # Read the remote script content
+    $scriptContent = Get-Content -Path $RemoteScript -Raw
+    
+    # Execute remote script by piping content directly via SSH
+    if ($jupyterChoice -match '^[Yy]$') {
+        $envVars = "JUPYTER_CHOICE='$jupyterChoice' JUPYTER_PASSWORD='$jupyterPassword' VSCODE_CHOICE='$vscodeChoice'"
+        $sshArgs = "-o BatchMode=yes -o StrictHostKeyChecking=no -o LogLevel=ERROR `"$($mghUser)@ml007.research.partners.org`" `"$envVars bash -s`""
+    } else {
+        $envVars = "JUPYTER_CHOICE='$jupyterChoice' VSCODE_CHOICE='$vscodeChoice'"
+        $sshArgs = "-o BatchMode=yes -o StrictHostKeyChecking=no -o LogLevel=ERROR `"$($mghUser)@ml007.research.partners.org`" `"$envVars bash -s`""
+    }
+    
+    # Create process to pipe script content to SSH
+    $sshProcess = New-Object System.Diagnostics.Process
+    $sshProcess.StartInfo.FileName = "ssh"
+    $sshProcess.StartInfo.Arguments = $sshArgs
+    $sshProcess.StartInfo.UseShellExecute = $false
+    $sshProcess.StartInfo.RedirectStandardInput = $true
+    $sshProcess.StartInfo.RedirectStandardOutput = $true
+    $sshProcess.StartInfo.RedirectStandardError = $true
+    $sshProcess.StartInfo.CreateNoWindow = $true
     
     try {
-        # Read the script and clean it
-        $scriptBytes = [System.IO.File]::ReadAllBytes($RemoteScript)
-        $scriptText = [System.Text.Encoding]::UTF8.GetString($scriptBytes)
+        $sshProcess.Start() | Out-Null
         
-        # Remove ALL carriage returns and normalize to Unix line endings
-        $scriptText = $scriptText -replace "`r`n", "`n" -replace "`r", "`n"
-        $scriptText = $scriptText -replace [char]13, ""  # Remove any remaining carriage returns (ASCII 13)
+        # Write script content to SSH stdin
+        $sshProcess.StandardInput.Write($scriptContent)
+        $sshProcess.StandardInput.Close()
         
-        # Ensure the script ends with a single newline
-        $scriptText = $scriptText.TrimEnd() + "`n"
+        # Read output
+        $output = $sshProcess.StandardOutput.ReadToEnd()
+        $error = $sshProcess.StandardError.ReadToEnd()
+        $sshProcess.WaitForExit()
+        $exitCode = $sshProcess.ExitCode
         
-        # Write to temp file with UTF8 encoding and Unix line endings
-        if ($PSVersionTable.PSVersion.Major -ge 7) {
-            # PowerShell 7+ method
-            $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
-            [System.IO.File]::WriteAllText($tempFile, $scriptText, $utf8NoBom)
-        } else {
-            # PowerShell 5.1 method - use Out-File with UTF8 encoding
-            $scriptText | Out-File -FilePath $tempFile -Encoding UTF8 -NoNewline
+        # Combine output and error
+        if ($error) {
+            $output += "`n" + $error
         }
         
-        if ($jupyterChoice -match '^[Yy]$') {
-            $envVars = "JUPYTER_CHOICE='$jupyterChoice' JUPYTER_PASSWORD='$jupyterPassword' VSCODE_CHOICE='$vscodeChoice'"
-            # Use SSH key-based authentication (passwordless) and suppress warnings
-            & cmd /c "type `"$tempFile`"" | ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$($mghUser)@ml007.research.partners.org" "$envVars bash -s" 2>$null | Tee-Object -FilePath ./onboarding_remote.log
-        } else {
-            $envVars = "JUPYTER_CHOICE='$jupyterChoice' VSCODE_CHOICE='$vscodeChoice'"
-            & cmd /c "type `"$tempFile`"" | ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$($mghUser)@ml007.research.partners.org" "$envVars bash -s" | Tee-Object -FilePath ./onboarding_remote.log
+        # Display and log output
+        if ($output) {
+            Write-Host $output
+            $output | Out-File -FilePath "./onboarding_remote.log" -Encoding UTF8
         }
+        
+        if ($exitCode -ne 0) {
+            Write-Host "[ERROR] Remote script execution failed with exit code: $exitCode" -ForegroundColor Red
+            throw "Remote script execution failed"
+        }
+    } catch {
+        Write-Host "[ERROR] SSH execution error: $_" -ForegroundColor Red
+        throw "SSH execution failed: $_"
     } finally {
-        # Clean up temp file
-        if (Test-Path $tempFile) {
-            Remove-Item $tempFile -Force
+        if ($sshProcess) {
+            $sshProcess.Dispose()
         }
     }
 } catch {

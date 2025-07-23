@@ -771,3 +771,440 @@ Remote onboarding complete!
 PowerShell transcript end
 End time: 20250723132919
 **********************
+**********************
+PowerShell transcript start
+Start time: 20250723134900
+Username: JDD-DESKTOP\Justin
+RunAs User: JDD-DESKTOP\Justin
+Configuration Name: 
+Machine: JDD-DESKTOP (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\Justin\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 50788
+PSVersion: 7.5.2
+PSEdition: Core
+GitCommitId: 7.5.2
+OS: Microsoft Windows 10.0.22621
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+[KEY] Existing SSH key found - reusing.
+[COPY] Copying public key to ml007...
+   Testing SSH connection to ml007...
+   (You may be prompted for your password)
+   SSH connection successful, preparing remote SSH directory...
+   Remote SSH directory structure confirmed
+[SKIP] Public key already exists in ml007 authorized_keys.
+Executing remote onboarding on ml007...
+   Testing SSH connection with key-based authentication...
+   SSH connection successful, executing remote script...
+
+
+
++------------------------------------------------------------------------------+
+| Authorized access only!                                                      |
+|                                                                              |
+| This system contains Controlled Unclassified Information(CUI), with specific |
+| handling requirements imposed by the National Institute of Health.           |
+| Disconnect IMMEDIATELY if you are not an authorized user!!! Unauthorized     |
+| use of the information system is prohibited and may be subject to            |
+| disciplinary, criminal, and civil penalties.                                 |
+|                                                                              |
+| All actions will be monitored and recorded, and is subject to audit. By      |
+| using this system, you agree to adhere to the NIH CUI handling policies and  |
+| procedures and Mass General BrighamΓÇÖs acceptable use policy.                 |
++------------------------------------------------------------------------------+
+Starting remote onboarding process...
+* Jupyter password already set.
+Remote onboarding complete!
+**********************
+PowerShell transcript end
+End time: 20250723134923
+**********************
+**********************
+Windows PowerShell transcript start
+Start time: 20250723135145
+Username: JDD-DESKTOP\Justin
+RunAs User: JDD-DESKTOP\Justin
+Configuration Name: 
+Machine: JDD-DESKTOP (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 60392
+PSVersion: 5.1.22621.5624
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.22621.5624
+BuildVersion: 10.0.22621.5624
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS C:\Users\Justin\Documents\Python Scripts\onboarding-main>
+(base) ssh ji111@ml007.research.partners.org
+
+PS C:\Users\Justin\Documents\Python Scripts\onboarding-main>
+(base) .\scripts\local\onboarding_local_windows.ps1
+
+[Starting] Starting local onboarding process...
+PowerShell Version: 5.1.22621.5624
+[SUCCESS] MGH username set to: ji111
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+[KEY] Existing SSH key found - reusing.
+[COPY] Copying public key to ml007...
+   Testing SSH connection to ml007...
+   (You may be prompted for your password)
+(base) TerminatingError(ssh.exe): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: System.Management.Automation.RemoteException"
+[ERROR] Unexpected error during public key setup: System.Management.Automation.RemoteException
+[MANUAL] Manual installation: Add this key to ~/.ssh/authorized_keys on ml007:
+         ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQChy0CVqX5lzyxksArFF1PypZWAH64Lgo5eV1td/OeaM+AFsVV9RJCMVgnwd7yZodmIcH5PkMNfy2axKRDDz+H3hLQuclgbDXBZfHpvlW7gEzHcVJmKR/npoQmZKgfh7ifSu1kwPgkkS+K84sszsR87QOqGIqn33SEClNpYpZiKc0snY2btARqzCS2qefgU8QC30lXWOhDXYH+zaobdvkqQ4LQtUSleoKT7Mv6acn6kJZWHQtzopRk8J5QgDYaiKcXiB06OUwcI+PGxr9JmSLk7oJb+NGmTOQrdri6y2hUSgts+AFtnVlSUkWG3Xl3eiXcAPH2du6MEfdmY1vEumDR5QQ5h9vXVOd4tjaTVHX/LxvGCbc7EJiCIe7d8hIL6uNzpSs2gkxXN8yxMWndROG8LJx8mzl7imCnn7wZLwgthnkxQv/MaMVrsF65Cw8Ug7krld0/Rn6bvN0pnjlj8n9fMenhdb7dIm1NVMuim+p0X8BLXFon4vJokWp+LAvGajzc= justin@JDD-Desktop
+[ERROR] Cannot proceed without SSH key setup.
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+PS C:\Users\Justin\Documents\Python Scripts\onboarding-main>
+(base) .\scripts\local\onboarding_local_windows.ps1
+
+[Starting] Starting local onboarding process...
+PowerShell Version: 5.1.22621.5624
+[SUCCESS] MGH username set to: ji111
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+[KEY] Existing SSH key found - reusing.
+[COPY] Copying public key to ml007...
+   Testing SSH connection to ml007...
+   (You may be prompted for your password)
+(base) TerminatingError(ssh.exe): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: System.Management.Automation.RemoteException"
+[ERROR] Unexpected error during public key setup: System.Management.Automation.RemoteException
+[MANUAL] Manual installation: Add this key to ~/.ssh/authorized_keys on ml007:
+         ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQChy0CVqX5lzyxksArFF1PypZWAH64Lgo5eV1td/OeaM+AFsVV9RJCMVgnwd7yZodmIcH5PkMNfy2axKRDDz+H3hLQuclgbDXBZfHpvlW7gEzHcVJmKR/npoQmZKgfh7ifSu1kwPgkkS+K84sszsR87QOqGIqn33SEClNpYpZiKc0snY2btARqzCS2qefgU8QC30lXWOhDXYH+zaobdvkqQ4LQtUSleoKT7Mv6acn6kJZWHQtzopRk8J5QgDYaiKcXiB06OUwcI+PGxr9JmSLk7oJb+NGmTOQrdri6y2hUSgts+AFtnVlSUkWG3Xl3eiXcAPH2du6MEfdmY1vEumDR5QQ5h9vXVOd4tjaTVHX/LxvGCbc7EJiCIe7d8hIL6uNzpSs2gkxXN8yxMWndROG8LJx8mzl7imCnn7wZLwgthnkxQv/MaMVrsF65Cw8Ug7krld0/Rn6bvN0pnjlj8n9fMenhdb7dIm1NVMuim+p0X8BLXFon4vJokWp+LAvGajzc= justin@JDD-Desktop
+[ERROR] Cannot proceed without SSH key setup.
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+PS C:\Users\Justin\Documents\Python Scripts\onboarding-main>
+(base) .\scripts\local\onboarding_local_windows.ps1
+
+[Starting] Starting local onboarding process...
+PowerShell Version: 5.1.22621.5624
+[SUCCESS] MGH username set to: ji111
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+[KEY] Existing SSH key found - reusing.
+[COPY] Copying public key to ml007...
+   Testing SSH connection to ml007...
+   (You may be prompted for your password)
+   SSH Output: connected
+
+
+
+
++------------------------------------------------------------------------------+
+| Authorized access only!                                                      |
+|                                                                              |
+| This system contains Controlled Unclassified Information(CUI), with specific |
+| handling requirements imposed by the National Institute of Health.           |
+| Disconnect IMMEDIATELY if you are not an authorized user!!! Unauthorized     |
+| use of the information system is prohibited and may be subject to            |
+| disciplinary, criminal, and civil penalties.                                 |
+|                                                                              |
+| All actions will be monitored and recorded, and is subject to audit. By      |
+| using this system, you agree to adhere to the NIH CUI handling policies and  |
+| procedures and Mass General Brigham???s acceptable use policy.                 |
++------------------------------------------------------------------------------+
+   Exit Code: 0
+   SSH connection successful, preparing remote SSH directory...
+(base) TerminatingError(ssh.exe): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: System.Management.Automation.RemoteException"
+[ERROR] Unexpected error during public key setup: System.Management.Automation.RemoteException
+[MANUAL] Manual installation: Add this key to ~/.ssh/authorized_keys on ml007:
+         ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQChy0CVqX5lzyxksArFF1PypZWAH64Lgo5eV1td/OeaM+AFsVV9RJCMVgnwd7yZodmIcH5PkMNfy2axKRDDz+H3hLQuclgbDXBZfHpvlW7gEzHcVJmKR/npoQmZKgfh7ifSu1kwPgkkS+K84sszsR87QOqGIqn33SEClNpYpZiKc0snY2btARqzCS2qefgU8QC30lXWOhDXYH+zaobdvkqQ4LQtUSleoKT7Mv6acn6kJZWHQtzopRk8J5QgDYaiKcXiB06OUwcI+PGxr9JmSLk7oJb+NGmTOQrdri6y2hUSgts+AFtnVlSUkWG3Xl3eiXcAPH2du6MEfdmY1vEumDR5QQ5h9vXVOd4tjaTVHX/LxvGCbc7EJiCIe7d8hIL6uNzpSs2gkxXN8yxMWndROG8LJx8mzl7imCnn7wZLwgthnkxQv/MaMVrsF65Cw8Ug7krld0/Rn6bvN0pnjlj8n9fMenhdb7dIm1NVMuim+p0X8BLXFon4vJokWp+LAvGajzc= justin@JDD-Desktop
+[ERROR] Cannot proceed without SSH key setup.
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+PS C:\Users\Justin\Documents\Python Scripts\onboarding-main>
+(base) .\scripts\local\onboarding_local_windows.ps1
+
+[Starting] Starting local onboarding process...
+PowerShell Version: 5.1.22621.5624
+[SUCCESS] MGH username set to: ji111
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+[KEY] Existing SSH key found - reusing.
+[COPY] Copying public key to ml007...
+   Testing SSH connection to ml007...
+   (You may be prompted for your password)
+   SSH Output: connected
+
+
+
+
++------------------------------------------------------------------------------+
+| Authorized access only!                                                      |
+|                                                                              |
+| This system contains Controlled Unclassified Information(CUI), with specific |
+| handling requirements imposed by the National Institute of Health.           |
+| Disconnect IMMEDIATELY if you are not an authorized user!!! Unauthorized     |
+| use of the information system is prohibited and may be subject to            |
+| disciplinary, criminal, and civil penalties.                                 |
+|                                                                              |
+| All actions will be monitored and recorded, and is subject to audit. By      |
+| using this system, you agree to adhere to the NIH CUI handling policies and  |
+| procedures and Mass General Brigham???s acceptable use policy.                 |
++------------------------------------------------------------------------------+
+   Exit Code: 0
+   SSH connection successful, preparing remote SSH directory...
+   Remote SSH directory structure confirmed
+[SKIP] Public key already exists in ml007 authorized_keys.
+Executing remote onboarding on ml007...
+   Testing SSH connection with key-based authentication...
+(base) TerminatingError(ssh.exe): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: System.Management.Automation.RemoteException"
+[ERROR] Error: System.Management.Automation.RemoteException
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+PS C:\Users\Justin\Documents\Python Scripts\onboarding-main>
+(base) .\scripts\local\onboarding_local_windows.ps1
+
+[Starting] Starting local onboarding process...
+PowerShell Version: 5.1.22621.5624
+[SUCCESS] MGH username set to: ji111
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+[KEY] Existing SSH key found - reusing.
+[COPY] Copying public key to ml007...
+   Testing SSH connection to ml007...
+   (You may be prompted for your password)
+   SSH Output: connected
+
+
+
+
++------------------------------------------------------------------------------+
+| Authorized access only!                                                      |
+|                                                                              |
+| This system contains Controlled Unclassified Information(CUI), with specific |
+| handling requirements imposed by the National Institute of Health.           |
+| Disconnect IMMEDIATELY if you are not an authorized user!!! Unauthorized     |
+| use of the information system is prohibited and may be subject to            |
+| disciplinary, criminal, and civil penalties.                                 |
+|                                                                              |
+| All actions will be monitored and recorded, and is subject to audit. By      |
+| using this system, you agree to adhere to the NIH CUI handling policies and  |
+| procedures and Mass General Brigham???s acceptable use policy.                 |
++------------------------------------------------------------------------------+
+   Exit Code: 0
+   SSH connection successful, preparing remote SSH directory...
+   Remote SSH directory structure confirmed
+[SKIP] Public key already exists in ml007 authorized_keys.
+Executing remote onboarding on ml007...
+   Testing SSH connection with key-based authentication...
+   SSH Key Test Output: connected
+
+
+
+
++------------------------------------------------------------------------------+
+| Authorized access only!                                                      |
+|                                                                              |
+| This system contains Controlled Unclassified Information(CUI), with specific |
+| handling requirements imposed by the National Institute of Health.           |
+| Disconnect IMMEDIATELY if you are not an authorized user!!! Unauthorized     |
+| use of the information system is prohibited and may be subject to            |
+| disciplinary, criminal, and civil penalties.                                 |
+|                                                                              |
+| All actions will be monitored and recorded, and is subject to audit. By      |
+| using this system, you agree to adhere to the NIH CUI handling policies and  |
+| procedures and Mass General Brigham???s acceptable use policy.                 |
++------------------------------------------------------------------------------+
+   SSH Key Test Exit Code: 0
+   SSH connection successful, executing remote script...
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+[SKIP] Host ml003 already in SSH config - skipping.
+[SKIP] Host ml007 already in SSH config - skipping.
+[SKIP] Host ml008 already in SSH config - skipping.
+
+[COMPLETE] Local onboarding complete!
+PS C:\Users\Justin\Documents\Python Scripts\onboarding-main>
+(base) .\scripts\local\onboarding_local_windows.ps1
+
+[Starting] Starting local onboarding process...
+PowerShell Version: 5.1.22621.5624
+[SUCCESS] MGH username set to: ji111
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+[KEY] Existing SSH key found - reusing.
+[COPY] Copying public key to ml007...
+   Testing SSH connection to ml007...
+   (You may be prompted for your password)
+[ERROR] Cannot resolve hostname 'ml007.research.partners.org'
+[TIP] Please check your network connection and DNS settings.
+      You may need to be connected to the organization VPN.
+[MANUAL] Manual key installation required:
+         1. Copy this public key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQChy0CVqX5lzyxksArFF1PypZWAH64Lgo5eV1td/OeaM+AFsVV9RJCMVgnwd7yZodmIcH5PkMNfy2axKRDDz+H3hLQuclgbDXBZfHpvlW7gEzHcVJmKR/npoQmZKgfh7ifSu1kwPgkkS+K84sszsR87QOqGIqn33SEClNpYpZiKc0snY2btARqzCS2qefgU8QC30lXWOhDXYH+zaobdvkqQ4LQtUSleoKT7Mv6acn6kJZWHQtzopRk8J5QgDYaiKcXiB06OUwcI+PGxr9JmSLk7oJb+NGmTOQrdri6y2hUSgts+AFtnVlSUkWG3Xl3eiXcAPH2du6MEfdmY1vEumDR5QQ5h9vXVOd4tjaTVHX/LxvGCbc7EJiCIe7d8hIL6uNzpSs2gkxXN8yxMWndROG8LJx8mzl7imCnn7wZLwgthnkxQv/MaMVrsF65Cw8Ug7krld0/Rn6bvN0pnjlj8n9fMenhdb7dIm1NVMuim+p0X8BLXFon4vJokWp+LAvGajzc= justin@JDD-Desktop
+         2. Add it to ~/.ssh/authorized_keys on the remote server
+[ERROR] Cannot proceed without SSH key setup.
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+PS C:\Users\Justin\Documents\Python Scripts\onboarding-main>
+(base) .\scripts\local\onboarding_local_windows.ps1
+
+[Starting] Starting local onboarding process...
+PowerShell Version: 5.1.22621.5624
+[SUCCESS] MGH username set to: ji111
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+[KEY] Existing SSH key found - reusing.
+[COPY] Copying public key to ml007...
+   Testing SSH connection to ml007...
+   (You may be prompted for your password)
+   SSH connection successful, preparing remote SSH directory...
+   Remote SSH directory structure confirmed
+[SUCCESS] Public key successfully copied to ml007.
+Executing remote onboarding on ml007...
+   Testing SSH connection with key-based authentication...
+   SSH connection successful, executing remote script...
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+[SKIP] Host ml003 already in SSH config - skipping.
+[SKIP] Host ml007 already in SSH config - skipping.
+[SKIP] Host ml008 already in SSH config - skipping.
+
+[COMPLETE] Local onboarding complete!
+PS C:\Users\Justin\Documents\Python Scripts\onboarding-main>
+(base) .\scripts\local\onboarding_local_windows.ps1
+
+[Starting] Starting local onboarding process...
+PowerShell Version: 5.1.22621.5624
+[SUCCESS] MGH username set to: ji111
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+[KEY] Existing SSH key found - reusing.
+[COPY] Copying public key to ml007...
+   Testing SSH connection to ml007...
+   (You may be prompted for your password)
+   SSH connection successful, preparing remote SSH directory...
+   Remote SSH directory structure confirmed
+[SUCCESS] Public key successfully copied to ml007.
+Executing remote onboarding on ml007...
+   Testing SSH connection with key-based authentication...
+   SSH connection successful, executing remote script...
+Starting remote onboarding process...
+Remote onboarding complete!
+
+
+
+
++------------------------------------------------------------------------------+
+| Authorized access only!                                                      |
+|                                                                              |
+| This system contains Controlled Unclassified Information(CUI), with specific |
+| handling requirements imposed by the National Institute of Health.           |
+| Disconnect IMMEDIATELY if you are not an authorized user!!! Unauthorized     |
+| use of the information system is prohibited and may be subject to            |
+| disciplinary, criminal, and civil penalties.                                 |
+|                                                                              |
+| All actions will be monitored and recorded, and is subject to audit. By      |
+| using this system, you agree to adhere to the NIH CUI handling policies and  |
+| procedures and Mass General Brigham???s acceptable use policy.                 |
++------------------------------------------------------------------------------+
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+[SKIP] Host ml003 already in SSH config - skipping.
+[SKIP] Host ml007 already in SSH config - skipping.
+[SKIP] Host ml008 already in SSH config - skipping.
+
+[COMPLETE] Local onboarding complete!
+PS C:\Users\Justin\Documents\Python Scripts\onboarding-main>
+(base) ssh ml007
+
+PS C:\Users\Justin\Documents\Python Scripts\onboarding-main>
+(base) ssl ML007
+ssl : The term 'ssl' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ ssl ML007
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (ssl:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ssl : The term 'ssl' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of
+the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ ssl ML007
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (ssl:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\Justin\Documents\Python Scripts\onboarding-main>
+(base) ssh ML007
+
+PS C:\Users\Justin\Documents\Python Scripts\onboarding-main>
+(base) .\scripts\local\onboarding_local_windows.ps1
+
+[Starting] Starting local onboarding process...
+PowerShell Version: 5.1.22621.5624
+[SUCCESS] MGH username set to: ji111
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+[KEY] Existing SSH key found - reusing.
+[COPY] Copying public key to ml007...
+   Testing SSH connection to ml007...
+   (You may be prompted for your password)
+   SSH connection successful, preparing remote SSH directory...
+   Remote SSH directory structure confirmed
+[SKIP] Public key already exists in ml007 authorized_keys.
+**********************
+Windows PowerShell transcript start
+Start time: 20250723141314
+Username: JDD-DESKTOP\Justin
+RunAs User: JDD-DESKTOP\Justin
+Configuration Name: 
+Machine: JDD-DESKTOP (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 58232
+PSVersion: 5.1.22621.5624
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.22621.5624
+BuildVersion: 10.0.22621.5624
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+[KEY] Existing SSH key found - reusing.
+[COPY] Copying public key to ml007...
+   Testing SSH connection to ml007...
+   (You may be prompted for your password)
+   SSH connection successful, preparing remote SSH directory...
+   Remote SSH directory structure confirmed
+[SKIP] Public key already exists in ml007 authorized_keys.
+Executing remote onboarding on ml007...
+   Testing SSH connection with key-based authentication...
+   SSH connection successful, executing remote script...
+Starting remote onboarding process...
+Remote onboarding complete!
+**********************
+Windows PowerShell transcript end
+End time: 20250723141328
+**********************
