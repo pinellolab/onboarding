@@ -39,13 +39,7 @@ mkdir -p "$user_folder"
 "$miniforge_path/bin/mamba" config list envs_dirs | grep -Fq "$user_folder" ||
     "$miniforge_path/bin/mamba" config prepend envs_dirs "$user_folder"
 
-# -- 3. authorised_keys perms fix -----------------------------
-mkdir -p "$HOME/.ssh"
-touch    "$HOME/.ssh/authorized_keys"
-chmod 600 "$HOME/.ssh/authorized_keys"
-chown "$USER:$USER" "$HOME/.ssh/authorized_keys"
-
-# -- 4. optional Jupyter Lab password -------------------------
+# -- 3. optional Jupyter Lab password -------------------------
 if [ -n "${JUPYTER_CHOICE:-}" ]; then
     jupyter_choice="$JUPYTER_CHOICE"
 else
@@ -70,7 +64,7 @@ EOF
     fi
 fi
 
-# -- 5. optional VS Code Machine settings ---------------------
+# -- 4. optional VS Code Machine settings ---------------------
 if [ -n "${VSCODE_CHOICE:-}" ]; then
     vscode_choice="$VSCODE_CHOICE"
 else
