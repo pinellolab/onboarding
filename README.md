@@ -5,8 +5,8 @@ cluster account into a fully-configured development environment in minutes.
 
 | Script | Platform | What it does |
 |--------|----------|--------------|
-| `scripts/local/onboarding_local_mac.sh` | **macOS 12 +** | Installs VS Code + extensions, generates SSH keys, writes SSH config, then triggers the remote bootstrapper. |
-| `scripts/local/onboarding_local_windows.ps1` | **Windows 10/11** | Same as mac, **plus** optional WSL 2 install & networking tweaks. |
+| `scripts/local/onboarding_local_mac.sh` | **macOS 12 +** | Installs VS Code + extensions, generates SSH keys and copies them to ml007 (with password prompt), then triggers the remote bootstrapper using key-based authentication. |
+| `scripts/local/onboarding_local_windows.ps1` | **Windows 10/11** | Same as mac, **plus** optional WSL 2 install & networking tweaks. Compatible with PowerShell 5.1 and 7+. |
 | `scripts/remote/onboarding_remote.sh` | **Cluster (Debian/Ubuntu)** | Adds shared software to `PATH`, sets up Mamba/Conda, personal env folder, Jupyter password, VS Code server settings, and fixes SSH permissions. |
 
 ---
@@ -73,8 +73,9 @@ During execution you can choose to:
 
 1. Install Microsoft Teams and VS Code (plus WSL 2 on Windows).
 2. Install VS Code extensions **Remote-SSH**, **Python**, **Jupyter**, **Copilot**.
-3. Generate an SSH key (if missing) and copy it to the cluster.
-4. Provide your **MGH username** so the script can run the remote bootstrapper.
+3. Provide your **MGH username** for cluster access.
+4. Generate an SSH key (if missing) and copy it to ml007 (**you'll be prompted for your password once**).
+5. Run the remote bootstrapper using passwordless SSH key authentication.
 
 ---
 
@@ -97,9 +98,10 @@ During execution you can choose to:
 
 | Symptom                                | Fix                                                                                                                                                                        |
 | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `code` CLI not found (mac)             | Launch VS Code once and run **“Shell Command: Install ‘code’ command in PATH”**, or `export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"`. |
+| `code` CLI not found (mac)             | Launch VS Code once and run **"Shell Command: Install 'code' command in PATH"**, or `export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"`. |
 | `winget` not recognised (Win)          | Install the Windows Package Manager from the Microsoft Store or upgrade to Windows 10 21H2 / Windows 11.                                                                   |
-| `Permission denied (publickey)` on SSH | Re-run the local script; ensure the key was generated **and** `ssh-copy-id` succeeded.                                                                                     |
+| `Host key verification failed` on SSH  | This is normal for first-time connections. The scripts now automatically accept host keys, but you may need to clear old entries with `ssh-keygen -R ml007.research.partners.org`. |
+| `Permission denied (publickey)` on SSH | The SSH key setup may have failed. Re-run the local script and ensure you enter your password when prompted during the key copying phase.                                |
 | VS Code on server shows no interpreter | Connect once, then *Python → Select Interpreter* and pick the **Miniforge3** entry ending in `/bin/python`.                                                                |
 
 ---
