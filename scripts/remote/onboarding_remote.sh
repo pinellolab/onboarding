@@ -49,12 +49,14 @@ if [[ "$jupyter_choice" =~ ^[Yy]$ ]]; then
     cfg="$HOME/.jupyter/jupyter_server_config.json"
     mkdir -p "$(dirname "$cfg")"
     if ! grep -q '"IdentityProvider":' "$cfg" 2>/dev/null; then
-        if [ -n "${JUPYTER_PASSWORD:-}" ]; then
+        if [ -n "${JUPYTER_CHOICE:-}" ]; then
             echo "Setting Jupyter password (non-interactive)..."
+            # Read password from stdin (first line)
+            read -r jupyter_password
             source "$miniforge_path/bin/activate" base
             "$miniforge_path/bin/jupyter" lab password <<EOF
-$JUPYTER_PASSWORD
-$JUPYTER_PASSWORD
+$jupyter_password
+$jupyter_password
 EOF
         else
             echo "* Jupyter password not set (no password provided)."
