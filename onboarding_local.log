@@ -633,3 +633,141 @@ Remote onboarding complete!
 PowerShell transcript end
 End time: 20250723130125
 **********************
+**********************
+PowerShell transcript start
+Start time: 20250723132535
+Username: JDD-DESKTOP\Justin
+RunAs User: JDD-DESKTOP\Justin
+Configuration Name: 
+Machine: JDD-DESKTOP (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\Justin\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 62684
+PSVersion: 7.5.2
+PSEdition: Core
+GitCommitId: 7.5.2
+OS: Microsoft Windows 10.0.22621
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+[KEY] Existing SSH key found - reusing.
+[COPY] Copying public key to ml007...
+   Testing SSH connection to ml007...
+   (You may be prompted for your password)
+   SSH connection successful, preparing remote SSH directory...
+   Remote SSH directory structure confirmed
+[SKIP] Public key already exists in ml007 authorized_keys.
+Executing remote onboarding on ml007...
+   Testing SSH connection with key-based authentication...
+   SSH connection successful, executing remote script...
+Starting remote onboarding process...
+* Jupyter password already set.
+Remote onboarding complete!
+ERROR: Error on line 88.
+**********************
+PowerShell transcript end
+End time: 20250723132555
+**********************
+**********************
+PowerShell transcript start
+Start time: 20250723132649
+Username: JDD-DESKTOP\Justin
+RunAs User: JDD-DESKTOP\Justin
+Configuration Name: 
+Machine: JDD-DESKTOP (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\Justin\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 62684
+PSVersion: 7.5.2
+PSEdition: Core
+GitCommitId: 7.5.2
+OS: Microsoft Windows 10.0.22621
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+[KEY] Existing SSH key found - reusing.
+[COPY] Copying public key to ml007...
+   Testing SSH connection to ml007...
+   (You may be prompted for your password)
+   SSH connection successful, preparing remote SSH directory...
+   Remote SSH directory structure confirmed
+[SKIP] Public key already exists in ml007 authorized_keys.
+Executing remote onboarding on ml007...
+   Testing SSH connection with key-based authentication...
+   SSH connection successful, executing remote script...
+Starting remote onboarding process...
+* Jupyter password already set.
+Remote onboarding complete!
+ERROR: Error on line 96.
+**********************
+PowerShell transcript end
+End time: 20250723132709
+**********************
+**********************
+PowerShell transcript start
+Start time: 20250723132901
+Username: JDD-DESKTOP\Justin
+RunAs User: JDD-DESKTOP\Justin
+Configuration Name: 
+Machine: JDD-DESKTOP (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\Justin\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 62684
+PSVersion: 7.5.2
+PSEdition: Core
+GitCommitId: 7.5.2
+OS: Microsoft Windows 10.0.22621
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+[KEY] Existing SSH key found - reusing.
+[COPY] Copying public key to ml007...
+   Testing SSH connection to ml007...
+   (You may be prompted for your password)
+   SSH connection successful, preparing remote SSH directory...
+   Remote SSH directory structure confirmed
+[SKIP] Public key already exists in ml007 authorized_keys.
+Executing remote onboarding on ml007...
+   Testing SSH connection with key-based authentication...
+   SSH connection successful, executing remote script...
+
+
+
++------------------------------------------------------------------------------+
+| Authorized access only!                                                      |
+|                                                                              |
+| This system contains Controlled Unclassified Information(CUI), with specific |
+| handling requirements imposed by the National Institute of Health.           |
+| Disconnect IMMEDIATELY if you are not an authorized user!!! Unauthorized     |
+| use of the information system is prohibited and may be subject to            |
+| disciplinary, criminal, and civil penalties.                                 |
+|                                                                              |
+| All actions will be monitored and recorded, and is subject to audit. By      |
+| using this system, you agree to adhere to the NIH CUI handling policies and  |
+| procedures and Mass General BrighamΓÇÖs acceptable use policy.                 |
++------------------------------------------------------------------------------+
+Starting remote onboarding process...
+* Jupyter password already set.
+Remote onboarding complete!
+**********************
+PowerShell transcript end
+End time: 20250723132919
+**********************
