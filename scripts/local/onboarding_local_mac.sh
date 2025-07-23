@@ -98,7 +98,7 @@ echo "🔐  Copying public key to ml007 (you may be prompted for your password)�
 # First ensure proper SSH directory structure on remote server
 echo "   Setting up remote SSH directory structure..."
 if ssh -o StrictHostKeyChecking=no "$mgh_user"@ml007.research.partners.org \
-  "mkdir -p \$HOME/.ssh && touch \$HOME/.ssh/authorized_keys && chmod 700 \$HOME/.ssh && chmod 600 \$HOME/.ssh/authorized_keys" 2>/dev/null; then
+  "mkdir -p \$HOME/.ssh && [ -f \$HOME/.ssh/authorized_keys ] && mv \$HOME/.ssh/authorized_keys \$HOME/.ssh/authorized_keys.old || true && touch \$HOME/.ssh/authorized_keys && [ -f \$HOME/.ssh/authorized_keys.old ] && cat \$HOME/.ssh/authorized_keys.old >> \$HOME/.ssh/authorized_keys || true && chmod 700 \$HOME/.ssh && chmod 600 \$HOME/.ssh/authorized_keys" 2>/dev/null; then
   echo "✅ Remote SSH directory structure confirmed"
 else
   echo "⚠️  Warning: Could not setup SSH directory structure - continuing anyway"
