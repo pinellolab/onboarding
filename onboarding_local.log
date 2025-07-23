@@ -524,3 +524,112 @@ Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onbo
 
 [COMPLETE] Local onboarding complete!
 ]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cJustin\x5cDocuments\x5cPython Scripts\x5conboarding-mainPS C:\Users\Justin\Documents\Python Scripts\onboarding-main> ]633;B
+PS>.\scripts\local\onboarding_local_windows.ps1
+
+[Starting] Starting local onboarding process...
+PowerShell Version: 7.5.2
+[SUCCESS] MGH username set to: ji111
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+[KEY] Existing SSH key found - reusing.
+[COPY] Copying public key to ml007...
+   Testing SSH connection to ml007...
+   (You may be prompted for your password)
+   SSH connection successful, preparing remote SSH directory...
+   Remote SSH directory structure confirmed
+[SKIP] Public key already exists in ml007 authorized_keys.
+Executing remote onboarding on ml007...
+   Testing SSH connection with key-based authentication...
+   SSH connection successful, executing remote script...
+Starting remote onboarding process...
+Remote onboarding complete!
+Transcript stopped, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+[SKIP] Host ml003 already in SSH config - skipping.
+[SKIP] Host ml007 already in SSH config - skipping.
+[SKIP] Host ml008 already in SSH config - skipping.
+
+[COMPLETE] Local onboarding complete!
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cJustin\x5cDocuments\x5cPython Scripts\x5conboarding-mainPS C:\Users\Justin\Documents\Python Scripts\onboarding-main> ]633;B
+**********************
+PowerShell transcript end
+End time: 20250723122407
+**********************
+**********************
+PowerShell transcript start
+Start time: 20250723130022
+Username: JDD-DESKTOP\Justin
+RunAs User: JDD-DESKTOP\Justin
+Configuration Name: 
+Machine: JDD-DESKTOP (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\Justin\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 56264
+PSVersion: 7.5.2
+PSEdition: Core
+GitCommitId: 7.5.2
+OS: Microsoft Windows 10.0.22621
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+[KEY] Existing SSH key found - reusing.
+[COPY] Copying public key to ml007...
+   Testing SSH connection to ml007...
+   (You may be prompted for your password)
+[ERROR] Cannot resolve hostname 'ml007.research.partners.org'
+[TIP] Please check your network connection and DNS settings.
+      You may need to be connected to the organization VPN.
+[MANUAL] Manual key installation required:
+         1. Copy this public key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQChy0CVqX5lzyxksArFF1PypZWAH64Lgo5eV1td/OeaM+AFsVV9RJCMVgnwd7yZodmIcH5PkMNfy2axKRDDz+H3hLQuclgbDXBZfHpvlW7gEzHcVJmKR/npoQmZKgfh7ifSu1kwPgkkS+K84sszsR87QOqGIqn33SEClNpYpZiKc0snY2btARqzCS2qefgU8QC30lXWOhDXYH+zaobdvkqQ4LQtUSleoKT7Mv6acn6kJZWHQtzopRk8J5QgDYaiKcXiB06OUwcI+PGxr9JmSLk7oJb+NGmTOQrdri6y2hUSgts+AFtnVlSUkWG3Xl3eiXcAPH2du6MEfdmY1vEumDR5QQ5h9vXVOd4tjaTVHX/LxvGCbc7EJiCIe7d8hIL6uNzpSs2gkxXN8yxMWndROG8LJx8mzl7imCnn7wZLwgthnkxQv/MaMVrsF65Cw8Ug7krld0/Rn6bvN0pnjlj8n9fMenhdb7dIm1NVMuim+p0X8BLXFon4vJokWp+LAvGajzc= justin@JDD-Desktop
+         2. Add it to ~/.ssh/authorized_keys on the remote server
+[ERROR] Cannot proceed without SSH key setup.
+**********************
+PowerShell transcript end
+End time: 20250723130025
+**********************
+**********************
+PowerShell transcript start
+Start time: 20250723130110
+Username: JDD-DESKTOP\Justin
+RunAs User: JDD-DESKTOP\Justin
+Configuration Name: 
+Machine: JDD-DESKTOP (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\Justin\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 56264
+PSVersion: 7.5.2
+PSEdition: Core
+GitCommitId: 7.5.2
+OS: Microsoft Windows 10.0.22621
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is C:\Users\Justin\Documents\Python Scripts\onboarding-main\onboarding_local.log
+Skipping WSL installation.
+Skipping Teams.
+Skipping VS Code.
+[KEY] Existing SSH key found - reusing.
+[COPY] Copying public key to ml007...
+   Testing SSH connection to ml007...
+   (You may be prompted for your password)
+   SSH connection successful, preparing remote SSH directory...
+   Remote SSH directory structure confirmed
+[SKIP] Public key already exists in ml007 authorized_keys.
+Executing remote onboarding on ml007...
+   Testing SSH connection with key-based authentication...
+   SSH connection successful, executing remote script...
+Starting remote onboarding process...
+Remote onboarding complete!
+**********************
+PowerShell transcript end
+End time: 20250723130125
+**********************
