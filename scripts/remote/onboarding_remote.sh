@@ -24,7 +24,6 @@ if ! grep -Fq "$shared_software_bin" ~/.bashrc; then
 fi
 
 grep -Fq "umask g+w"              ~/.bashrc || echo "umask g+w" >> ~/.bashrc
-grep -Fq "PIP_REQUIRE_VIRTUALENV" ~/.bashrc || echo "export PIP_REQUIRE_VIRTUALENV=true" >> ~/.bashrc
 
 # mamba / conda init only once
 if ! grep -Fq "mamba shell init" ~/.bashrc; then
